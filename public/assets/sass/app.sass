@@ -1,0 +1,56 @@
+#phrase_box {  
+  display: flex;
+  flex-flow: column;
+  height: 150px;
+  overflow: hidden;
+  width: 260px;
+}
+
+#phrases {
+  animation: slide-phrases-upward 20s;
+}
+
+@keyframes slide-phrases-upward {
+  @for $i from 0 through 20 {
+    #{$i * 5%} {
+      transform: translateY($i * -50px);
+    }
+  }
+}
+
+@for $i from 0 through 20 {
+  #loadingCheckCircleSVG-#{$i} {
+    animation: fill-to-gold 5000ms;
+    animation-delay: ($i - 1.5) * 1s;
+    fill: gold;
+    opacity: 0;
+  }
+}
+@keyframes fill-to-gold {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@for $i from 0 through 20 {
+  #loadingCheckSVG-#{$i} {
+    animation: fill-to-blue 5000ms;
+    animation-delay: ($i - 1.5) * 1s;    
+  }
+}
+@keyframes fill-to-blue {
+  0% {
+    fill: gold;
+  }
+  10% {
+    fill: $brightBlue;
+  }
+  100% {
+    fill: $brightBlue;
+  }
+}
